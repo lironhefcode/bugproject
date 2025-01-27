@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser'
 import {bugService} from './services/bug.service.js'
 const app = express() 
 app.use(express.static('public'))
+app.use(cookieParser())
 
 app.listen(3032, () => console.log('Server ready at port 3032'))
 
@@ -34,8 +35,15 @@ app.get('/api/bug/save', (req, res) => {
 
 // get by id
 app.get('/api/bug/:bugId', (req, res) => {
-
+    let visitedBugs = req.cookies.visitedBugs || []
     const { bugId } = req.params
+    if(!visitedBugs.includes(bugId )){
+            if(visitedBugs.length >2) return res.status(401).send('Wait for a bit') 
+            else visitedBugs.push(bugId)
+            
+    }
+    res.cookie('visitedBugs', visitedBugs,{ maxAge: 1000 * 7 })
+    
     bugService.getById(bugId)
         .then(bug => res.send(bug))
         .catch(err => {
@@ -44,6 +52,7 @@ app.get('/api/bug/:bugId', (req, res) => {
 
 
 })
+
 // remove
 app.get('/api/bug/:bugId/remove', (req, res) => {
 
