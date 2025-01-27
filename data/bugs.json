@@ -1,22 +1,32 @@
 [
     {
+        "_id": "IoIxI",
+        "title": "new bug",
+        "severity": 10,
+        "description": "this is a new bug"
+    },
+    {
+        "_id": "PlYgE",
+        "title": "Bug 1737987397271",
+        "severity": 4,
+        "description": "aaaaaaaaaaaaaa"
+    },
+    {
         "title": "Infinite Loop Detected",
         "severity": 4,
-        "_id": "1NF1N1T3"
+        "_id": "1NF1N1T3",
+        "description": "A code loop is repeating indefinitely, causing the application to hang or crash. This could be due to a missing condition or incorrect termination logic."
     },
     {
-        "title": "Keyboard Not Found",
-        "severity": 3,
-        "_id": "K3YB0RD"
-    },
-    {
+        "_id": "C0FF33",
         "title": "404 Coffee Not Found",
         "severity": 2,
-        "_id": "C0FF33"
+        "description": ""
     },
     {
+        "_id": "G0053",
         "title": "Unexpected Response",
         "severity": 1,
-        "_id": "G0053"
+        "description": "The application received data or a response in an unexpected format or value, likely due to an issue with the external service or API it relies on."
     }
 ]

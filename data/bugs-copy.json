@@ -2,21 +2,25 @@
     {
         "title": "Infinite Loop Detected",
         "severity": 4,
-        "_id": "1NF1N1T3"
+        "_id": "1NF1N1T3",
+        "description": "A code loop is repeating indefinitely, causing the application to hang or crash. This could be due to a missing condition or incorrect termination logic."
     },
     {
         "title": "Keyboard Not Found",
         "severity": 3,
-        "_id": "K3YB0RD"
+        "_id": "K3YB0RD",
+        "description": "The system is unable to detect a connected keyboard. This might be caused by a hardware failure, a disconnected cable, or missing driver software."
     },
     {
         "title": "404 Coffee Not Found",
         "severity": 2,
-        "_id": "C0FF33"
+        "_id": "C0FF33",
+        "description": "A humorous placeholder error indicating that a resource or endpoint expected by the application is unavailable. May involve a broken API link or a missing resource."
     },
     {
         "title": "Unexpected Response",
         "severity": 1,
-        "_id": "G0053"
+        "_id": "G0053",
+        "description": "The application received data or a response in an unexpected format or value, likely due to an issue with the external service or API it relies on."
     }
 ]
