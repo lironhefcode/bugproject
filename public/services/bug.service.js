@@ -10,24 +10,11 @@ export const bugService = {
     getById,
     save,
     remove,
-    getDefaultFilter
+    getDefaultQuery
 }
 
-function query(filterBy) {
-    return axios.get(BASE_URL)
-        .then(res => res.data)
-        .then(bugs => {
-            if (filterBy.txt) {
-                const regExp = new RegExp(filterBy.txt, 'i')
-                bugs = bugs.filter(bug => regExp.test(bug.title))
-            }
-
-            if (filterBy.minSeverity) {
-                bugs = bugs.filter(bug => bug.severity >= filterBy.minSeverity)
-            }
-
-            return bugs
-        })
+function query(queryBy = getDefaultQuery()) {
+    return axios.get(BASE_URL, { params: queryBy }).then(res => res.data)
 }
 
 function getById(bugId) {
@@ -36,19 +23,19 @@ function getById(bugId) {
 }
 
 function remove(bugId) {
-    return axios.get(BASE_URL + bugId + '/remove')
-                                                .then(res => res.data)
+    return axios.delete(BASE_URL + bugId )
+                                        .then(res => res.data)
 }
 
 function save(bug) {
-    const url = BASE_URL + 'save'
-    let queryParams = `?severity=${bug.severity}&description=${bug.description}&title=${bug.title}`
-    if (bug._id) queryParams += `&_id=${bug._id}`
-    return axios.get(url + queryParams)
-                                            .then(res => res.data)
-                                            .catch(err => {
-                                                console.log('err:', err)
-                                            })
+   
+   
+    if (bug._id) {
+        return axios.put(BASE_URL + bug._id,bug).then(res => res.data)                                  
+    }else{
+        return axios.post(BASE_URL ,bug).then(res => res.data)
+        
+    }
 }
 
 function _createBugs() {
@@ -80,6 +67,6 @@ function _createBugs() {
     utilService.saveToStorage(STORAGE_KEY, bugs)
 }
 
-function getDefaultFilter() {
-    return { txt: '', minSeverity: 0 }
+function getDefaultQuery() {
+    return { filter:{txt: '', minSeverity: 0,}, sort:{title:1},  }
 }

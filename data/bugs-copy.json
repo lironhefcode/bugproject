@@ -1,26 +1,50 @@
 [
     {
-        "title": "Infinite Loop Detected",
-        "severity": 4,
-        "_id": "1NF1N1T3",
-        "description": "A code loop is repeating indefinitely, causing the application to hang or crash. This could be due to a missing condition or incorrect termination logic."
-    },
-    {
-        "title": "Keyboard Not Found",
+        "_id": "abc123",
+        "title": "Cannot save a Car",
+        "description": "Problem when clicking Save",
         "severity": 3,
-        "_id": "K3YB0RD",
-        "description": "The system is unable to detect a connected keyboard. This might be caused by a hardware failure, a disconnected cable, or missing driver software."
+        "createdAt": 1542107359454,
+        "labels": ["critical", "need-CR", "dev-branch"]
     },
     {
-        "title": "404 Coffee Not Found",
+        "_id": "def456",
+        "title": "Page Not Loading",
+        "description": "The homepage fails to load under certain conditions",
         "severity": 2,
-        "_id": "C0FF33",
-        "description": "A humorous placeholder error indicating that a resource or endpoint expected by the application is unavailable. May involve a broken API link or a missing resource."
+        "createdAt": 1643198359454,
+        "labels": ["urgent", "frontend", "high-priority"]
     },
     {
-        "title": "Unexpected Response",
+        "_id": "ghi789",
+        "title": "Button Click Does Nothing",
+        "description": "Submit button is unresponsive on form page",
+        "severity": 4,
+        "createdAt": 1681108359454,
+        "labels": ["bug", "QA", "backend"]
+    },
+    {
+        "_id": "jkl012",
+        "title": "Database Connection Error",
+        "description": "Application fails to connect to the database intermittently",
         "severity": 1,
-        "_id": "G0053",
-        "description": "The application received data or a response in an unexpected format or value, likely due to an issue with the external service or API it relies on."
+        "createdAt": 1574207359454,
+        "labels": ["critical", "database", "dev-ops"]
+    },
+    {
+        "_id": "mno345",
+        "title": "CSS Layout Broken",
+        "description": "Page layout breaks on smaller screen sizes",
+        "severity": 5,
+        "createdAt": 1598207359454,
+        "labels": ["frontend", "low-priority", "responsive-design"]
+    },
+    {
+        "_id": "pqr678",
+        "title": "API Request Timeout",
+        "description": "Certain API requests take too long to respond",
+        "severity": 2,
+        "createdAt": 1621107359454,
+        "labels": ["backend", "performance", "API"]
     }
 ]

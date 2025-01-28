@@ -1,12 +1,15 @@
-const { useState, useEffect } = React
+const { useState, useEffect,useRef  } = React
 
-export function BugFilter({ filterBy, onSetFilterBy }) {
+export function BugFilter({ queryOptions, onSetQueryrBy }) {
 
-    const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
-
+    const [filterByToEdit, setFilterByToEdit] = useState(queryOptions.filter)
+    const [sortBY,setSortBY] = useState(queryOptions.sort)
+    const [sortdir,setSortdir] = useState(queryOptions.sort[Object.keys(queryOptions.sort)[0]])
+   
     useEffect(() => {
-        onSetFilterBy(filterByToEdit)
-    }, [filterByToEdit])
+        const queryOptions = {filter:filterByToEdit,sort:sortBY}
+        onSetQueryrBy(queryOptions)
+    }, [filterByToEdit,sortBY,sortdir])
 
     function handleChange({ target }) {
         const field = target.name
@@ -28,12 +31,25 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
 
         setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
     }
+    function handleSortChange({target}){
+        if(target.name === 'sort'){
+
+            const newSort = {[target.value]:sortdir}
+            setSortBY(prevSort => newSort)
+        }else{
+            const newSort = {[Object.keys(sortBY)[0]]:sortBY[Object.keys(sortBY)[0]] *-1}
+            setSortBY(prevSort => newSort)
+        }
+    }
 
     function onSubmitFilter(ev) {
         ev.preventDefault()
-        onSetFilterBy(filterByToEdit)
+        const queryOptions = {filter:filterByToEdit,sort:sortBY}
+        onSetQueryrBy(queryOptions)
     }
-
+    function changeDir(){
+        setSortdir(prevdir => prevdir*-1)
+    }
     const { txt, minSeverity } = filterByToEdit
     return (
         <section className="bug-filter">
@@ -44,6 +60,17 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
 
                 <label htmlFor="minSeverity">Min Severity: </label>
                 <input value={minSeverity} onChange={handleChange} type="number" placeholder="By Min Severity" id="minSeverity" name="minSeverity" />
+                    
+                    <select name="sort" onChange={handleSortChange}>
+                    <option value="title">title</option>
+                    <option value="severity">severity</option>
+                    <option value="createdAt">createdAt</option>
+                    </select>
+
+                    <label>
+                    <span>Descending</span>
+                    <input name="dir"   type="checkbox"  onChange={handleSortChange} />
+                </label>
             </form>
         </section>
     )
