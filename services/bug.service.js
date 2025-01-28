@@ -14,6 +14,7 @@ function query(queryBy) {
     let {filter,sort,pageIdx} = queryBy
     filter = JSON.parse(filter)
     sort = JSON.parse(sort)
+ 
     return Promise.resolve(bugs)
     .then(bugs => {
         if (filter.txt) {
@@ -23,6 +24,9 @@ function query(queryBy) {
 
         if (filter.minSeverity) {
             bugs = bugs.filter(bug => bug.severity >= filter.minSeverity)
+        }
+        if(filter.label){    
+            bugs = bugs.filter(bug => bug.labels.includes(filter.label))
         }
         if(sort.title){
             bugs = bugs.sort((b1,b2)=> b1.title.localeCompare(b2.title) *sort.title )
@@ -61,6 +65,8 @@ function save(bugToSave) {
         bugs[bugIdx] = bugToSave
     } else {
         bugToSave._id = utilService.makeId()
+        bugToSave.createdAt = Date.now()
+        bugToSave.labels = []
         bugs.unshift(bugToSave)
     }
 

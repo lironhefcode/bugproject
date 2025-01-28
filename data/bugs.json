@@ -1,43 +1,11 @@
 [
     {
-        "_id": "abc123",
-        "title": "Cannot save a Car",
-        "description": "Problem when clicking Save",
+        "title": "Bug 1738073983990",
         "severity": 3,
-        "createdAt": 1542107359454,
-        "labels": ["critical", "need-CR", "dev-branch"]
-    },
-    {
-        "_id": "def456",
-        "title": "Page Not Loading",
-        "description": "The homepage fails to load under certain conditions",
-        "severity": 2,
-        "createdAt": 1643198359454,
-        "labels": ["urgent", "frontend", "high-priority"]
-    },
-    {
-        "_id": "ghi789",
-        "title": "Button Click Does Nothing",
-        "description": "Submit button is unresponsive on form page",
-        "severity": 4,
-        "createdAt": 1681108359454,
-        "labels": ["bug", "QA", "backend"]
-    },
-    {
-        "_id": "jkl012",
-        "title": "Database Connection Error",
-        "description": "Application fails to connect to the database intermittently",
-        "severity": 1,
-        "createdAt": 1574207359454,
-        "labels": ["critical", "database", "dev-ops"]
-    },
-    {
-        "_id": "mno345",
-        "title": "CSS Layout Broken",
-        "description": "Page layout breaks on smaller screen sizes",
-        "severity": 5,
-        "createdAt": 1598207359454,
-        "labels": ["frontend", "low-priority", "responsive-design"]
+        "description": "test bug hey hye hye",
+        "_id": "1ttoK",
+        "createdAt": 1738073997176,
+        "labels": []
     },
     {
         "_id": "pqr678",
@@ -45,6 +13,48 @@
         "description": "Certain API requests take too long to respond",
         "severity": 2,
         "createdAt": 1621107359454,
-        "labels": ["backend", "performance", "API"]
+        "labels": [
+            "backend",
+            "performance"
+        ]
+    },
+    {
+        "_id": "ghi789",
+        "title": "Button Click Does Nothing",
+        "description": "Submit button is unresponsive on form page",
+        "severity": 4,
+        "createdAt": 1681108359454,
+        "labels": [
+            "performance",
+            "backend"
+        ]
+    },
+    {
+        "_id": "abc123",
+        "title": "Cannot save a Car",
+        "description": "Problem when clicking Save",
+        "severity": 3,
+        "createdAt": 1542107359454,
+        "labels": [
+            "critical",
+            "dev-branch"
+        ]
+    },
+    {
+        "_id": "mno345",
+        "title": "CSS Layout Broken",
+        "severity": 6,
+        "description": "Page layout breaks on smaller screen sizes"
+    },
+    {
+        "_id": "def456",
+        "title": "Page Not Loading",
+        "description": "The homepage fails to load under certain conditions",
+        "severity": 2,
+        "createdAt": 1643198359454,
+        "labels": [
+            "frontend",
+            "urgent"
+        ]
     }
 ]

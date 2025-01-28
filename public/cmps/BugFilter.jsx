@@ -50,7 +50,7 @@ export function BugFilter({ queryOptions, onSetQueryrBy }) {
     function changeDir(){
         setSortdir(prevdir => prevdir*-1)
     }
-    const { txt, minSeverity } = filterByToEdit
+    const { txt, minSeverity,label } = filterByToEdit
     return (
         <section className="bug-filter">
             <h2>Filter</h2>
@@ -61,6 +61,19 @@ export function BugFilter({ queryOptions, onSetQueryrBy }) {
                 <label htmlFor="minSeverity">Min Severity: </label>
                 <input value={minSeverity} onChange={handleChange} type="number" placeholder="By Min Severity" id="minSeverity" name="minSeverity" />
                     
+                
+                <label htmlFor="label">By lable: </label>
+                <select name="label" onChange={handleChange}>
+                <option value="">chose lable filter</option>
+                    <option value="critical">critical</option>
+                    <option value="frontend">frontend</option>
+                    <option value="dev-branch">dev-branch</option>
+                    <option value="urgent">urgent</option>
+                    <option value="backend">backend</option>
+                    <option value="performance">performance</option>
+                    </select>
+
+                    <label htmlFor="sort">Sort by:</label>
                     <select name="sort" onChange={handleSortChange}>
                     <option value="title">title</option>
                     <option value="severity">severity</option>

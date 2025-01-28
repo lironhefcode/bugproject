@@ -68,5 +68,5 @@ function _createBugs() {
 }
 
 function getDefaultQuery() {
-    return { filter:{txt: '', minSeverity: 0,}, sort:{title:1},  }
+    return { filter:{txt: '', minSeverity: 0, label:''}, sort:{title:1},  }
 }
