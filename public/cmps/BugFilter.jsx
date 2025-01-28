@@ -54,14 +54,17 @@ export function BugFilter({ queryOptions, onSetQueryrBy }) {
     return (
         <section className="bug-filter">
             <h2>Filter</h2>
-            <form onSubmit={onSubmitFilter}>
+            <form className="form-content" onSubmit={onSubmitFilter}>
+                <div className="filter">
+                    <div>
                 <label htmlFor="txt">Text: </label>
                 <input value={txt} onChange={handleChange} type="text" placeholder="By Text" id="txt" name="txt" />
-
+                </div>
+                <div>
                 <label htmlFor="minSeverity">Min Severity: </label>
                 <input value={minSeverity} onChange={handleChange} type="number" placeholder="By Min Severity" id="minSeverity" name="minSeverity" />
-                    
-                
+                </div>
+                <div>
                 <label htmlFor="label">By lable: </label>
                 <select name="label" onChange={handleChange}>
                 <option value="">chose lable filter</option>
@@ -72,18 +75,22 @@ export function BugFilter({ queryOptions, onSetQueryrBy }) {
                     <option value="backend">backend</option>
                     <option value="performance">performance</option>
                     </select>
-
+                    </div>
+                    </div>
+                    <div className="sort">
+                        <div>
                     <label htmlFor="sort">Sort by:</label>
                     <select name="sort" onChange={handleSortChange}>
                     <option value="title">title</option>
                     <option value="severity">severity</option>
                     <option value="createdAt">createdAt</option>
                     </select>
-
+                    </div>
                     <label>
                     <span>Descending</span>
                     <input name="dir"   type="checkbox"  onChange={handleSortChange} />
                 </label>
+                </div>
             </form>
         </section>
     )
